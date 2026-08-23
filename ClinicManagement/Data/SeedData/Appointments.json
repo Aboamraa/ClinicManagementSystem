@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "StartTime": "2026-08-21T09:00:00",
+    "EndTime": "2026-08-21T09:30:00",
+    "AppointmentStatus": "Scheduled",
+    "Price": 750.00,
+    "DoctorId": 1,
+    "PatientId": "11111111-1111-1111-1111-111111111111"
+  },
+  {
+    "Id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "StartTime": "2026-08-21T10:00:00",
+    "EndTime": "2026-08-21T10:30:00",
+    "AppointmentStatus": "Scheduled",
+    "Price": 600.00,
+    "DoctorId": 2,
+    "PatientId": "22222222-2222-2222-2222-222222222222"
+  },
+  {
+    "Id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "StartTime": "2026-08-21T11:00:00",
+    "EndTime": "2026-08-21T11:45:00",
+    "AppointmentStatus": "Completed",
+    "Price": 900.00,
+    "DoctorId": 3,
+    "PatientId": "33333333-3333-3333-3333-333333333333"
+  },
+  {
+    "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "StartTime": "2026-08-22T09:30:00",
+    "EndTime": "2026-08-22T10:00:00",
+    "AppointmentStatus": "Scheduled",
+    "Price": 500.00,
+    "DoctorId": 4,
+    "PatientId": "44444444-4444-4444-4444-444444444444"
+  },
+  {
+    "Id": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "StartTime": "2026-08-22T13:00:00",
+    "EndTime": "2026-08-22T13:45:00",
+    "AppointmentStatus": "Cancelled",
+    "Price": 800.00,
+    "DoctorId": 5,
+    "PatientId": "55555555-5555-5555-5555-555555555555"
+  },
+  {
+    "Id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "StartTime": "2026-08-23T14:00:00",
+    "EndTime": "2026-08-23T14:30:00",
+    "AppointmentStatus": "Scheduled",
+    "Price": 650.00,
+    "DoctorId": 6,
+    "PatientId": "66666666-6666-6666-6666-666666666666"
+  },
+  {
+    "Id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    "StartTime": "2026-08-24T10:00:00",
+    "EndTime": "2026-08-24T10:30:00",
+    "AppointmentStatus": "Scheduled",
+    "Price": 700.00,
+    "DoctorId": 7,
+    "PatientId": "11111111-1111-1111-1111-111111111111"
+  },
+  {
+    "Id": "bbbbbbbb-cccc-dddd-eeee-ffffffffffff",
+    "StartTime": "2026-08-24T12:00:00",
+    "EndTime": "2026-08-24T12:30:00",
+    "AppointmentStatus": "Completed",
+    "Price": 550.00,
+    "DoctorId": 8,
+    "PatientId": "22222222-2222-2222-2222-222222222222"
+  }
+]

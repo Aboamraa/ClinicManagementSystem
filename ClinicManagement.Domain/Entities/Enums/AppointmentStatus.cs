@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicManagement.Domain.Entities.Enums
+namespace ClinicManagement.Application.Entities.Enums
 {
     public enum AppointmentStatus
     {

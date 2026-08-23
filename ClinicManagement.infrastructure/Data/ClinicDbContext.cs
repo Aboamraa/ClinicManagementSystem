@@ -1,4 +1,4 @@
-﻿using ClinicManagement.Domain.Entities;
+﻿using ClinicManagement.Application.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using System;

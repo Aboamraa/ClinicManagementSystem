@@ -1,4 +1,8 @@
-﻿using ClinicManagement.Infrastructure.Data;
+﻿using ClinicManagement.Application.Contracts.Repositories;
+using ClinicManagement.Domain.Contracts;
+using ClinicManagement.Infrastructure.Data;
+using ClinicManagement.Infrastructure.DataSeeding;
+using ClinicManagement.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +19,9 @@ namespace ClinicManagement.Infrastructure.DependencyInjection
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<ClinicDbContext>(o => o.UseSqlServer(config.GetConnectionString("DefaultConnection")));
-
+            //services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IDataSeeder, DataSeeder>();
             return services;
         }
     }
