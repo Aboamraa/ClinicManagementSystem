@@ -1,4 +1,5 @@
 ﻿using ClinicManagement.Application.Common;
+using ClinicManagement.Application.Common.Result;
 using ClinicManagement.Application.Dtos;
 using ClinicManagement.Application.Entities;
 using System;
@@ -11,9 +12,9 @@ namespace ClinicManagement.Application.Contracts.Services
 {
     public interface IDoctorService
     {
-        Task<PaginationResult<DoctorDto>> GetAllDoctorsAsync(DoctorQueryParams query, CancellationToken ct = default);
+        Task<Result<PaginationResult<DoctorDto>>> GetAllDoctorsAsync(DoctorQueryParams query, CancellationToken ct = default);
 
-        Task<DoctorDto?> GetDoctorByIdAsync(int doctorId, CancellationToken ct = default);
-        Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto newDoctorDto, CancellationToken ct = default);
+        Task<Result<DoctorDto>> GetDoctorByIdAsync(int doctorId, CancellationToken ct = default);
+        Task<Result<DoctorDto>> CreateDoctorAsync(CreateDoctorDto newDoctorDto, CancellationToken ct = default);
     }
 }
