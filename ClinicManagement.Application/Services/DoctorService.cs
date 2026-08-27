@@ -68,5 +68,38 @@ namespace ClinicManagement.Application.Services
             // Save changes failed => Doctor Field to add
             return Result<DoctorDto>.Failure(Error.Failure()); // this would handle better with the result pattern
         }
+
+        public async Task<Result> DeleteDoctorAsync(int id, CancellationToken ct = default)
+        {
+            var doctor = await _doctorRepo.GetByIdAsync(id, ct);
+            if (doctor is null) return Result.Failure(Error.NotFound("Doctor not found", "Doctor.NotFound", $"Can't find doctor with id:{id}"));
+
+            _doctorRepo.Delete(doctor);
+            var changes = await unitOfWork.SaveChangesAsync(ct);
+            return changes > 0 ? Result.Ok() : Result.Failure(Error.Failure());
+        }
+
+        public async Task<Result<DoctorDto>> UpdateDoctorAsync(int doctorId, UpdateDoctorDto newDoctorData, CancellationToken ct = default)
+        {
+            var specs = new DoctorByIdSpecification(doctorId);
+            var doctor = await _doctorRepo.GetByIdAsync(specs, ct);
+            //var doctor = await _doctorRepo.GetByIdAsync(doctorId, ct);
+            if (doctor is null) return Result<DoctorDto>.Failure(Error.NotFound("Doctor Not Found", "Doctor.NotFound", $"Can't find doctor with id:{doctorId}"));
+
+            doctor.PhoneNumber = newDoctorData.PhoneNumber;
+            doctor.Salary = newDoctorData.Salary;
+            doctor.YearsOfExperience = newDoctorData.YearsOfExperience;
+            doctor.Email = newDoctorData.Email;
+
+            _doctorRepo.Update(doctor);
+
+            var result = await unitOfWork.SaveChangesAsync(ct);
+
+            var updatedDoctorDto = doctor.ToDto();
+
+
+            return result > 0 ? Result<DoctorDto>.Ok(updatedDoctorDto) : Result<DoctorDto>.Failure(Error.Failure());
+            
+        }
     }
 }

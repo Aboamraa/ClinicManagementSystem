@@ -16,5 +16,9 @@ namespace ClinicManagement.Application.Contracts.Services
 
         Task<Result<DoctorDto>> GetDoctorByIdAsync(int doctorId, CancellationToken ct = default);
         Task<Result<DoctorDto>> CreateDoctorAsync(CreateDoctorDto newDoctorDto, CancellationToken ct = default);
+        Task<Result> DeleteDoctorAsync(int id, CancellationToken ct = default);
+
+        Task<Result<DoctorDto>> UpdateDoctorAsync(int doctorId, UpdateDoctorDto newDoctorData, CancellationToken ct = default);
+
     }
 }

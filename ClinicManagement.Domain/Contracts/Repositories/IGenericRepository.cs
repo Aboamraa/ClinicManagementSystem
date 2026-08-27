@@ -14,10 +14,13 @@ namespace ClinicManagement.Application.Contracts.Repositories
     {
         Task<IReadOnlyList<TEntity>> GetAllAsync(ISpecification<TEntity, TKey>? specs, CancellationToken ct = default);
         Task<TEntity?> GetByIdAsync(ISpecification<TEntity, TKey> specs, CancellationToken ct = default);
+        Task<TEntity?> GetByIdAsync(TKey id, CancellationToken ct = default);
         Task AddAsync(TEntity entity, CancellationToken ct = default);
         void Update(TEntity entity);
         void Delete(TEntity entity);
-        public Task<int> CountAsync(ISpecification<TEntity, TKey> specs, CancellationToken ct = default);
+        Task<int> CountAsync(ISpecification<TEntity, TKey> specs, CancellationToken ct = default);
+
+        Task<bool> IsExistsAsync(TKey id, CancellationToken ct = default);
 
 
     }

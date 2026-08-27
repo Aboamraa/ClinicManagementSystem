@@ -4,6 +4,7 @@ using ClinicManagement.Application.Contracts.Services;
 using ClinicManagement.Application.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClinicManagement.API.Controllers
 {
@@ -12,14 +13,19 @@ namespace ClinicManagement.API.Controllers
     public class DoctorsController(IDoctorService doctorService) : APIBaseController
     {
         [HttpGet]
-        public async Task<ActionResult<PaginationResult<DoctorDto>>> GetAllDoctors([FromQuery] DoctorQueryParams queryParams)
+        [ProducesResponseType(typeof(PaginationResult<DoctorDto>), StatusCodes.Status200OK)]
+
+        public async Task<IActionResult> GetAllDoctors([FromQuery] DoctorQueryParams queryParams)
         {
             var result = await doctorService.GetAllDoctorsAsync(queryParams);
             return ToActionResult(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<DoctorDto>> GetDoctorById(int id)
+        [ProducesResponseType(typeof(DoctorDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetDoctorById(int id)
         {
             var result = await doctorService.GetDoctorByIdAsync(id);
             //if (result.IsFailure)
@@ -30,17 +36,38 @@ namespace ClinicManagement.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<DoctorDto>> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto, CancellationToken ct = default)
+        [ProducesResponseType(typeof(DoctorDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto, CancellationToken ct = default)
         {
             var result = await doctorService.CreateDoctorAsync(createDoctorDto, ct);
-            return ToActionResult(result);
-            //if (result.IsFailure) return BadRequest(result);
+            if (result.IsFailure)
+                return ToProblem(result);
 
-            //return CreatedAtAction(
-            //    nameof(GetDoctorById),
-            //    new { id = result.Data.Id },
-            //    result
-            //);
+            return CreatedAtAction(
+                nameof(GetDoctorById),
+                new { id = result.Data!.Id },
+                result.Data
+            );
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteDoctor(int doctorId, CancellationToken ct = default)
+        {
+            var result = await doctorService.DeleteDoctorAsync(doctorId, ct);
+            return ToActionResult(result);
+        }
+        [HttpPut("{doctorId}")]
+        [ProducesResponseType(typeof(DoctorDto), StatusCodes.Status200OK)]
+        [ProducesResponseType( StatusCodes.Status400BadRequest)]
+        [ProducesResponseType( StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateDoctor(int doctorId, UpdateDoctorDto updateData, CancellationToken ct = default)
+        {
+            var result = await doctorService.UpdateDoctorAsync(doctorId, updateData, ct);
+            return ToActionResult(result);
         }
     }
 }

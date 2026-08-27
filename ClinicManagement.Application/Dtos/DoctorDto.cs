@@ -14,6 +14,7 @@ namespace ClinicManagement.Application.Dtos
         public string PhoneNumber { get; set; } = default!;
 
         public int YearsOfExperience { get; set; }
+        public decimal Salary { get; set; }
         public string DepartmentTitle { get; set; } = default!;
 
     }

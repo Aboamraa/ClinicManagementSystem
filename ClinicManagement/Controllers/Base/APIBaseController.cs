@@ -8,12 +8,12 @@ namespace ClinicManagement.API.Controllers.Base
     [ApiController]
     public class APIBaseController : ControllerBase
     {
-        protected static ActionResult ToActionResult(Result result)
-            => result.IsSuccess ? new OkObjectResult(result) : ToProblem(result);
+        protected static IActionResult ToActionResult(Result result)
+            => result.IsSuccess ? new NoContentResult() : ToProblem(result);
 
 
 
-        protected static ActionResult<TResult> ToActionResult<TResult>(Result<TResult> result)
+        protected static IActionResult ToActionResult<TResult>(Result<TResult> result)
         {
             if (result.IsSuccess)
                 return new OkObjectResult(result.Data);

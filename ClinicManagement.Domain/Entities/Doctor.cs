@@ -22,6 +22,6 @@ namespace ClinicManagement.Application.Entities
         public ICollection<Appointment> Appointments { get; set; } = []; // Appointment Id => GUID
 
         public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public Department Department { get; set; } = default!;
     }
 }

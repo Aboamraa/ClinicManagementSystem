@@ -19,7 +19,8 @@ namespace ClinicManagement.Application.Mapping
                 Email = doctorModel.Email,
                 PhoneNumber = doctorModel.PhoneNumber,
                 YearsOfExperience = doctorModel.YearsOfExperience,
-                DepartmentTitle = doctorModel.Department?.Name ?? ""
+                DepartmentTitle = doctorModel.Department?.Name ?? "",
+                Salary = doctorModel.Salary,
             };
         }
         public static Doctor DoctorDtoToDoctor(this DoctorDto doctorDto)
@@ -31,6 +32,7 @@ namespace ClinicManagement.Application.Mapping
                 Email = doctorDto.Email,
                 PhoneNumber = doctorDto.PhoneNumber,
                 YearsOfExperience = doctorDto.YearsOfExperience,
+                Salary = doctorDto.Salary,
             };
         }
 
@@ -47,5 +49,7 @@ namespace ClinicManagement.Application.Mapping
                 DepartmentId = createDoctorDto.DepartmentId
             };
         }
+
+
     }
 }
