@@ -48,6 +48,7 @@ namespace ClinicManagement.Infrastructure.Repositories
             => await SpecificationEvaluator.CreateCountQuery(_dbContext.Set<TEntity>(), specs).CountAsync(ct);
 
         public async Task<bool> IsExistsAsync(TKey id, CancellationToken ct = default) => await _dbContext.Set<TEntity>().AnyAsync(entity => entity.Id!.Equals(id), cancellationToken: ct);
+        public async Task<bool> IsExistsAsync(ISpecification<TEntity, TKey> specs, CancellationToken ct = default) => await SpecificationEvaluator.CreateQuery(_dbContext.Set<TEntity>(), specs).AnyAsync(cancellationToken: ct);
 
 
     }

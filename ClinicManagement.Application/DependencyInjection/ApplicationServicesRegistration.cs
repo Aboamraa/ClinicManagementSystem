@@ -15,6 +15,7 @@ namespace ClinicManagement.Application.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IDoctorService, DoctorService>();
+            services.AddScoped<IPatientService, PatientService>();
             return services;
         }
     }

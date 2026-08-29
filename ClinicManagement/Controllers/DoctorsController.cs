@@ -1,7 +1,7 @@
 ﻿using ClinicManagement.API.Controllers.Base;
 using ClinicManagement.Application.Common;
 using ClinicManagement.Application.Contracts.Services;
-using ClinicManagement.Application.Dtos;
+using ClinicManagement.Application.Dtos.Doctor;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;

@@ -2,7 +2,7 @@
 using ClinicManagement.Application.Common.Result;
 using ClinicManagement.Application.Contracts.Repositories;
 using ClinicManagement.Application.Contracts.Services;
-using ClinicManagement.Application.Dtos;
+using ClinicManagement.Application.Dtos.Doctor;
 using ClinicManagement.Application.Entities;
 using ClinicManagement.Application.Mapping;
 using ClinicManagement.Application.Specifications;
@@ -99,7 +99,7 @@ namespace ClinicManagement.Application.Services
 
 
             return result > 0 ? Result<DoctorDto>.Ok(updatedDoctorDto) : Result<DoctorDto>.Failure(Error.Failure());
-            
+
         }
     }
 }

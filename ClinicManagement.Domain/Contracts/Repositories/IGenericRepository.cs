@@ -22,6 +22,7 @@ namespace ClinicManagement.Application.Contracts.Repositories
 
         Task<bool> IsExistsAsync(TKey id, CancellationToken ct = default);
 
+        public Task<bool> IsExistsAsync(ISpecification<TEntity, TKey> specs, CancellationToken ct = default);
 
     }
 }

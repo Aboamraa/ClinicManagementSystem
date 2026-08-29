@@ -1,4 +1,4 @@
-﻿using ClinicManagement.Application.Dtos;
+﻿using ClinicManagement.Application.Dtos.Doctor;
 using ClinicManagement.Application.Entities;
 using System;
 using System.Collections.Generic;
