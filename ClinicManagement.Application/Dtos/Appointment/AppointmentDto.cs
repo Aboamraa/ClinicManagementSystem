@@ -1,16 +1,15 @@
-﻿using ClinicManagement.Application.Entities.Abstract;
-using ClinicManagement.Application.Entities.Enums;
+﻿using ClinicManagement.Application.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicManagement.Application.Entities
+namespace ClinicManagement.Application.Dtos.Appointment
 {
-    public class Appointment : BaseEntity<Guid>
+    public class AppointmentDto
     {
-        // Id => inherited from BaseEntity => Guid
+        public Guid Id { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public AppointmentStatus AppointmentStatus { get; set; }
@@ -18,11 +17,8 @@ namespace ClinicManagement.Application.Entities
 
 
         public int DoctorId { get; set; }
-        public Doctor Doctor { get; set; } = default!;
 
 
         public Guid PatientId { get; set; }
-        public Patient Patient { get; set; } = default!;
-
     }
 }

@@ -16,6 +16,8 @@ namespace ClinicManagement.Application.DependencyInjection
         {
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
             return services;
         }
     }
