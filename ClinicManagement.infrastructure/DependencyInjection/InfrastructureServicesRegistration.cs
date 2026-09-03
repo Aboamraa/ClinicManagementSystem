@@ -2,7 +2,9 @@
 using ClinicManagement.Domain.Contracts;
 using ClinicManagement.Infrastructure.Data;
 using ClinicManagement.Infrastructure.DataSeeding;
+using ClinicManagement.Infrastructure.Identity;
 using ClinicManagement.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +24,22 @@ namespace ClinicManagement.Infrastructure.DependencyInjection
             //services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IDataSeeder, DataSeeder>();
+
+            //For Identity configuration
+            services.AddIdentityCore<ApplicationUser>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 8;
+                options.User.RequireUniqueEmail = true;
+            })
+            .AddRoles<IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<ClinicDbContext>();
+
+            services.AddScoped<IdentityDataSeeder>();
+
             return services;
         }
     }

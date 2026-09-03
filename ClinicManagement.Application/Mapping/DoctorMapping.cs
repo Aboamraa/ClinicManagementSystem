@@ -1,5 +1,5 @@
 ﻿using ClinicManagement.Application.Dtos.Doctor;
-using ClinicManagement.Application.Entities;
+using ClinicManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +16,8 @@ namespace ClinicManagement.Application.Mapping
             {
                 Id = doctorModel.Id,
                 Name = doctorModel.Name,
-                Email = doctorModel.Email,
-                PhoneNumber = doctorModel.PhoneNumber,
+                //Email = doctorModel.Email,
+                //PhoneNumber = doctorModel.PhoneNumber,
                 YearsOfExperience = doctorModel.YearsOfExperience,
                 DepartmentTitle = doctorModel.Department?.Name ?? "",
                 Salary = doctorModel.Salary,
@@ -29,8 +29,8 @@ namespace ClinicManagement.Application.Mapping
             {
                 Id = doctorDto.Id,
                 Name = doctorDto.Name,
-                Email = doctorDto.Email,
-                PhoneNumber = doctorDto.PhoneNumber,
+                //Email = doctorDto.Email,
+                //PhoneNumber = doctorDto.PhoneNumber,
                 YearsOfExperience = doctorDto.YearsOfExperience,
                 Salary = doctorDto.Salary,
             };
@@ -42,8 +42,8 @@ namespace ClinicManagement.Application.Mapping
             {
 
                 Name = createDoctorDto.Name,
-                Email = createDoctorDto.Email,
-                PhoneNumber = createDoctorDto.PhoneNumber,
+                //Email = createDoctorDto.Email,
+                //PhoneNumber = createDoctorDto.PhoneNumber,
                 YearsOfExperience = createDoctorDto.YearsOfExperience,
                 Salary = createDoctorDto.Salary,
                 DepartmentId = createDoctorDto.DepartmentId

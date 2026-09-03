@@ -3,10 +3,10 @@ using ClinicManagement.Application.Common.Result;
 using ClinicManagement.Application.Contracts.Repositories;
 using ClinicManagement.Application.Contracts.Services;
 using ClinicManagement.Application.Dtos.Doctor;
-using ClinicManagement.Application.Entities;
 using ClinicManagement.Application.Mapping;
 using ClinicManagement.Application.Specifications;
 using ClinicManagement.Domain.Contracts;
+using ClinicManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,10 +86,10 @@ namespace ClinicManagement.Application.Services
             //var doctor = await _doctorRepo.GetByIdAsync(doctorId, ct);
             if (doctor is null) return Result<DoctorDto>.Failure(Error.NotFound("Doctor Not Found", "Doctor.NotFound", $"Can't find doctor with id:{doctorId}"));
 
-            doctor.PhoneNumber = newDoctorData.PhoneNumber;
+            //doctor.PhoneNumber = newDoctorData.PhoneNumber;
+            //doctor.Email = newDoctorData.Email;
             doctor.Salary = newDoctorData.Salary;
             doctor.YearsOfExperience = newDoctorData.YearsOfExperience;
-            doctor.Email = newDoctorData.Email;
 
             _doctorRepo.Update(doctor);
 

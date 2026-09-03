@@ -6,69 +6,70 @@
     "PhoneNumber": "01012345678",
     "YearsOfExperience": 12,
     "Salary": 35000,
-    "DepartmentId": 1
+    "DepartmentId": 1,
+    "UserId": "7f3c9d21-5b64-4a18-9e72-1c8f6b3d2045"
   },
-  {
-    // "Id": 2,
-    "Name": "Mona Ali",
-    "Email": "mona.ali@clinic.com",
-    "PhoneNumber": "01123456789",
-    "YearsOfExperience": 8,
-    "Salary": 28000,
-    "DepartmentId": 1
-  },
-  {
-    // "Id": 3,
-    "Name": "Omar Khaled",
-    "Email": "omar.khaled@clinic.com",
-    "PhoneNumber": "01234567890",
-    "YearsOfExperience": 15,
-    "Salary": 42000,
-    "DepartmentId": 2
-  },
-  {
-    // "Id": 4,
-    "Name": "Sara Mohamed",
-    "Email": "sara.mohamed@clinic.com",
-    "PhoneNumber": "01098765432",
-    "YearsOfExperience": 6,
-    "Salary": 25000,
-    "DepartmentId": 2
-  },
-  {
-    // "Id": 5,
-    "Name": "Youssef Adel",
-    "Email": "youssef.adel@clinic.com",
-    "PhoneNumber": "01187654321",
-    "YearsOfExperience": 10,
-    "Salary": 30000,
-    "DepartmentId": 3
-  },
-  {
-    // "Id": 6,
-    "Name": "Nour Ibrahim",
-    "Email": "nour.ibrahim@clinic.com",
-    "PhoneNumber": "01276543210",
-    "YearsOfExperience": 5,
-    "Salary": 23000,
-    "DepartmentId": 3
-  },
-  {
-    // "Id": 7,
-    "Name": "Karim Mostafa",
-    "Email": "karim.mostafa@clinic.com",
-    "PhoneNumber": "01011223344",
-    "YearsOfExperience": 14,
-    "Salary": 38000,
-    "DepartmentId": 4
-  },
-  {
-    // "Id": 8,
-    "Name": "Hana Samir",
-    "Email": "hana.samir@clinic.com",
-    "PhoneNumber": "01122334455",
-    "YearsOfExperience": 7,
-    "Salary": 27000,
-    "DepartmentId": 5
-  }
+  //{
+  //  // "Id": 2,
+  //  "Name": "Mona Ali",
+  //  "Email": "mona.ali@clinic.com",
+  //  "PhoneNumber": "01123456789",
+  //  "YearsOfExperience": 8,
+  //  "Salary": 28000,
+  //  "DepartmentId": 1
+  //},
+  //{
+  //  // "Id": 3,
+  //  "Name": "Omar Khaled",
+  //  "Email": "omar.khaled@clinic.com",
+  //  "PhoneNumber": "01234567890",
+  //  "YearsOfExperience": 15,
+  //  "Salary": 42000,
+  //  "DepartmentId": 2
+  //},
+  //{
+  //  // "Id": 4,
+  //  "Name": "Sara Mohamed",
+  //  "Email": "sara.mohamed@clinic.com",
+  //  "PhoneNumber": "01098765432",
+  //  "YearsOfExperience": 6,
+  //  "Salary": 25000,
+  //  "DepartmentId": 2
+  //},
+  //{
+  //  // "Id": 5,
+  //  "Name": "Youssef Adel",
+  //  "Email": "youssef.adel@clinic.com",
+  //  "PhoneNumber": "01187654321",
+  //  "YearsOfExperience": 10,
+  //  "Salary": 30000,
+  //  "DepartmentId": 3
+  //},
+  //{
+  //  // "Id": 6,
+  //  "Name": "Nour Ibrahim",
+  //  "Email": "nour.ibrahim@clinic.com",
+  //  "PhoneNumber": "01276543210",
+  //  "YearsOfExperience": 5,
+  //  "Salary": 23000,
+  //  "DepartmentId": 3
+  //},
+  //{
+  //  // "Id": 7,
+  //  "Name": "Karim Mostafa",
+  //  "Email": "karim.mostafa@clinic.com",
+  //  "PhoneNumber": "01011223344",
+  //  "YearsOfExperience": 14,
+  //  "Salary": 38000,
+  //  "DepartmentId": 4
+  //},
+  //{
+  //  // "Id": 8,
+  //  "Name": "Hana Samir",
+  //  "Email": "hana.samir@clinic.com",
+  //  "PhoneNumber": "01122334455",
+  //  "YearsOfExperience": 7,
+  //  "Salary": 27000,
+  //  "DepartmentId": 5
+  //}
 ]

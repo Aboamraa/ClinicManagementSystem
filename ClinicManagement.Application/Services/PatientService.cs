@@ -3,10 +3,10 @@ using ClinicManagement.Application.Common.Result;
 using ClinicManagement.Application.Contracts.Repositories;
 using ClinicManagement.Application.Contracts.Services;
 using ClinicManagement.Application.Dtos.Patient;
-using ClinicManagement.Application.Entities;
 using ClinicManagement.Application.Mapping;
 using ClinicManagement.Application.Specifications;
 using ClinicManagement.Domain.Contracts;
+using ClinicManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,8 +55,8 @@ namespace ClinicManagement.Application.Services
             {
                 Id = Guid.NewGuid(),
                 Name = newPatient.Name,
-                Email = newPatient.Email,
-                PhoneNumber = newPatient.PhoneNumber,
+                //Email = newPatient.Email,
+                //PhoneNumber = newPatient.PhoneNumber,
                 Height = newPatient.Height,
                 Weight = newPatient.Weight,
                 BirthDate = newPatient.BirthDate
@@ -84,8 +84,8 @@ namespace ClinicManagement.Application.Services
 
 
 
-            patient.PhoneNumber = updatePatientData.PhoneNumber;
-            patient.Email = updatePatientData.Email;
+            //patient.PhoneNumber = updatePatientData.PhoneNumber;
+            //patient.Email = updatePatientData.Email;
             patient.Weight = updatePatientData.Weight;
             patient.Height = updatePatientData.Height;
 

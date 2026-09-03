@@ -1,4 +1,4 @@
-﻿using ClinicManagement.Application.Entities;
+﻿using ClinicManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace ClinicManagement.Application.Specifications
 {
     public class PatientByInfoSpecification : BaseSpecification<Patient, Guid>
     {
-        public PatientByInfoSpecification(string phoneNumber, string email) : base(p => p.PhoneNumber == phoneNumber || p.Email == email)
+        public PatientByInfoSpecification(string phoneNumber, string email) : base(/*p => p.PhoneNumber == phoneNumber || p.Email == email*/)
         {
 
         }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ClinicManagement.Application.Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicManagement.Application.Entities.Abstract
+namespace ClinicManagement.Domain.Entities.Abstract
 {
     public abstract class User<TKey> : BaseEntity<TKey>
     {

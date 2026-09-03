@@ -17,9 +17,7 @@ namespace ClinicManagement.API.Controllers.Base
         {
             if (result.IsSuccess)
                 return new OkObjectResult(result.Data);
-            else
-                return ToProblem(result);
-
+            return ToProblem(result);
         }
 
         protected static ActionResult ToProblem(Result result)
@@ -27,14 +25,8 @@ namespace ClinicManagement.API.Controllers.Base
             // Failure
             var failure = result.Errors[0];
 
-            var errorCode = failure.Type switch
-            {
-                ErrorType.NotFound => StatusCodes.Status404NotFound,
-                ErrorType.Validation => StatusCodes.Status400BadRequest,
-                ErrorType.Unauthorized => StatusCodes.Status401Unauthorized,
-                ErrorType.Conflict => StatusCodes.Status409Conflict,
-                _ => StatusCodes.Status500InternalServerError
-            };
+          
+            var errorCode = GetStatusCode(failure);
 
             var problemDetails = new ProblemDetails()
             {
@@ -45,6 +37,18 @@ namespace ClinicManagement.API.Controllers.Base
             };
             problemDetails.Extensions["errors"] = result.Errors.Select(e => new { e.Title, e.Description, e.Code }).ToList();
             return new ObjectResult(problemDetails) { StatusCode = errorCode };
+        }
+        private static int GetStatusCode(Error error)
+        {
+            return error.Type switch
+            {
+                ErrorType.NotFound => StatusCodes.Status404NotFound,
+                ErrorType.Validation => StatusCodes.Status400BadRequest,
+                ErrorType.Unauthorized => StatusCodes.Status401Unauthorized,
+                ErrorType.Conflict => StatusCodes.Status409Conflict,
+                ErrorType.Forbidden => StatusCodes.Status403Forbidden,
+                _ => StatusCodes.Status500InternalServerError
+            };
         }
     }
 }

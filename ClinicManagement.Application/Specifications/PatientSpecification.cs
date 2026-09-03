@@ -1,5 +1,5 @@
 ﻿using ClinicManagement.Application.Dtos.Patient;
-using ClinicManagement.Application.Entities;
+using ClinicManagement.Domain.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;

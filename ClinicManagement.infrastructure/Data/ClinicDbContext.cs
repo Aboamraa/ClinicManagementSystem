@@ -1,4 +1,7 @@
-﻿using ClinicManagement.Application.Entities;
+﻿using ClinicManagement.Domain.Entities;
+using ClinicManagement.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using System;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ClinicManagement.Infrastructure.Data
 {
-    public class ClinicDbContext : DbContext
+    public class ClinicDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public ClinicDbContext(DbContextOptions<ClinicDbContext> options) : base(options)
         {
@@ -17,8 +20,8 @@ namespace ClinicManagement.Infrastructure.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClinicDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClinicDbContext).Assembly);
         }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }

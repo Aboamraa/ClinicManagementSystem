@@ -46,7 +46,7 @@ namespace ClinicManagement.Infrastructure.DataSeeding
                 }
                 if (insertExplicitIdentity)
                 {
-                    await SeedWithExplicitIdentityAsync<TEntity, TKey>(data, filePath, ct);
+                    await SeedWithExplicitIdentityAsync<TEntity, TKey>(data, "Departments", filePath, ct);
                 }
                 else
                 {
@@ -95,16 +95,16 @@ namespace ClinicManagement.Infrastructure.DataSeeding
 
         }
 
-        private async Task SeedWithExplicitIdentityAsync<TEntity, TKey>(List<TEntity> data, string filePath, CancellationToken ct = default) where TEntity : BaseEntity<TKey>
+        private async Task SeedWithExplicitIdentityAsync<TEntity, TKey>(List<TEntity> data, string tableName, string filePath, CancellationToken ct = default) where TEntity : BaseEntity<TKey>
         {
-            await context.Database.ExecuteSqlAsync($"SET IDENTITY_INSERT {typeof(TEntity).Name} ON", ct);
+            await context.Database.ExecuteSqlRawAsync($"SET IDENTITY_INSERT {tableName} ON", ct);
 
             await context.Set<TEntity>().AddRangeAsync(data, ct);
             await context.SaveChangesAsync(ct);
 
             logger.LogInformation("Successfully seeded {dataCount} records to the database from file: {filePath}", data.Count, filePath);
 
-            await context.Database.ExecuteSqlAsync($"SET IDENTITY_INSERT {typeof(TEntity).Name} OFF", ct);
+            await context.Database.ExecuteSqlRawAsync($"SET IDENTITY_INSERT {tableName} OFF", ct);
         }
 
     }

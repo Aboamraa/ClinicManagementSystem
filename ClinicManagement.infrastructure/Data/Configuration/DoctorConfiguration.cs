@@ -1,4 +1,5 @@
-﻿using ClinicManagement.Application.Entities;
+﻿using ClinicManagement.Domain.Entities;
+using ClinicManagement.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -25,11 +26,10 @@ namespace ClinicManagement.Infrastructure.Data.Configuration
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(d => d.Email)
-                .HasMaxLength(100);
-
-            builder.Property(d => d.PhoneNumber)
-                .HasMaxLength(14);
+            builder.HasOne<ApplicationUser>()
+                .WithOne()
+                .HasForeignKey<Doctor>(d => d.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
